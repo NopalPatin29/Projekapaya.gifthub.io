@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surprise for Syawiela</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Georgia', serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #89CFF0, #4682B4);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: background 1s ease;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 50px;
+      border-radius: 25px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+      width: 90%;
+      max-width: 550px;
+      animation: fadeIn 1s ease;
+    }
+
+    input {
+      padding: 15px;
+      border: 2px solid #4682B4;
+      border-radius: 12px;
+      margin-top: 15px;
+      width: 80%;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    button {
+      background: #4682B4;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 18px;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #5a9bd5;
+      transform: scale(1.05);
+    }
+
+    .hidden { display: none; }
+
+    /* AMPlOP */
+    .floating-letter {
+      width: 260px;
+      height: 160px;
+      background: #f0f8ff;
+      border: 3px solid #4682B4;
+      border-radius: 8px;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      animation: float 3s ease-in-out infinite;
+      cursor: pointer;
+      margin: 0 auto;
+    }
+
+    /* Segitiga menghadap bawah */
+    .floating-letter::before {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 130px solid transparent;
+      border-right: 130px solid transparent;
+      border-top: 60px solid #4682B4;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .celebration {
+      font-size: 42px;
+      color: #00274d;
+      text-shadow: 2px 2px 15px rgba(255,255,255,0.8);
+      animation: pop 1s ease infinite alternate;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .confetti span {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: hsl(calc(var(--i) * 36), 70%, 50%);
+      top: -10px;
+      left: calc(var(--i) * 10%);
+      animation: fall 3s linear infinite;
+      animation-delay: calc(var(--i) * -0.3s);
+    }
+
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(720deg); }
+    }
+
+    h2, h3 {
+      font-size: clamp(20px, 2vw + 12px, 28px);
+      margin-bottom: 15px;
+    }
+
+    #letterText {
+      white-space: pre-line;
+      text-align: justify;
+      font-size: 16px;
+      color: #00274d;
+    }
+
+    a {
+      color: #004b8d;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #001f3f;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STEP 1 -->
+  <div class="container" id="step1">
+    <h2>Masukkin nama kamu dulu</h2>
+    <input type="text" id="name" placeholder="Nama kamu..." />
+    <br>
+    <button onclick="confirmOpen()">Konfirmasi</button>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="container hidden" id="step2">
+    <h2 id="confirmText"></h2>
+    <button onclick="goToLetter()">Iya</button>
+    <button onclick="cancelOpen()">Tidak</button>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="container hidden" id="step3">
+    <div class="floating-letter" onclick="openLetter()"></div>
+  </div>
+
+  <!-- STEP 4 (ISI SURAT) -->
+  <div class="container hidden" id="step4">
+    <p id="letterText">
+halooo selamat soree syawiela, wila, sawi, sayang, dann sebagainya
+selamat ulang tahun yaaa sayangg semogaa panjang umur sehat selalu dan dimudahkan kedepannyaa. maaff yaa aku gabisaa dateng kesanaa saat kamuu ulang tahunn karenaa yang pertama takda duit dan yang kedua besok ternyata makrabb hehehe. dann maaf jugaa akuu tak bisaa kirim hadiahh tapii nanti menyusul ajaa yaaa hehehe
+ohiyaa akuu cuman bisaa kasi kamuu video ini ajaa yang udah akuu buatt, akuu cuman bisaa bgitu ajaa sayangg maaf kalo emang ga sebaguss ituu. 
+dan oiya satu lagii semoga kamuu bisa ngejalanin menjadi gubernur hima nyaa yaaa kedepannyaa akuu yakin ko kenapa kamu bisa kepilih pasti karena mereka yakin juga sama kamuu, jangan pernah merasa sendiri jugaa pasti adaa temen-temen mu yang ngedampinginn.
+dan akuu juga mau minta maaf kaloo selama inii aku banyak salah ke kamuu yaaa. pokoknya stay strong and stay with me dehh <3
+
+-pateen
+    </p>
+    <button onclick="showFinal()">Lanjut</button>
+  </div>
+
+  <!-- STEP 5 (FINAL HAPPY BIRTHDAY) -->
+  <div class="container hidden" id="step5">
+    <div class="confetti">
+      <span style="--i:1"></span><span style="--i:2"></span><span style="--i:3"></span>
+      <span style="--i:4"></span><span style="--i:5"></span><span style="--i:6"></span>
+      <span style="--i:7"></span><span style="--i:8"></span><span style="--i:9"></span><span style="--i:10"></span>
+    </div>
+    <h1 class="celebration">HAPPY BIRTHDAY YAAA SAYANG 💙</h1>
+    <p style="margin-top:20px;">Jangan lupa liat link ini yaa 👇</p>
+    <p><a href="https://drive.google.com/file/d/1Bm_NNkGQ27ezbBJO7dappp24hizw27EM/view?usp=drive_link" target="_blank">
+      Klik di sini buat liat videonya 🎁
+    </a></p>
+  </div>
+
+  <script>
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const step3 = document.getElementById('step3');
+    const step4 = document.getElementById('step4');
+    const step5 = document.getElementById('step5');
+    const confirmText = document.getElementById('confirmText');
+    let userName = "";
+
+    function confirmOpen() {
+      userName = document.getElementById('name').value.trim();
+      if (userName === '') {
+        alert('Masukkan nama dulu!');
+        return;
+      }
+      step1.classList.add('hidden');
+      step2.classList.remove('hidden');
+      confirmText.textContent = `${userName}, kamu yakin ingin membuka ini?`;
+    }
+
+    function cancelOpen() {
+      document.body.innerHTML = '<h1 style="color:white; text-align:center; font-size:32px;">404 gitu aja deh</h1>';
+    }
+
+    function goToLetter() {
+      step2.classList.add('hidden');
+      step3.classList.remove('hidden');
+    }
+
+    function openLetter() {
+      step3.classList.add('hidden');
+      step4.classList.remove('hidden');
+    }
+
+    function showFinal() {
+      step4.classList.add('hidden');
+      step5.classList.remove('hidden');
+      document.body.style.background = 'linear-gradient(135deg, #1e90ff, #87cefa)';
+    }
+  </script>
+</body>
+</html>
